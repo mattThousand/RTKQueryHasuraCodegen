@@ -1,0 +1,10 @@
+query GetUsers {
+  users_connection(first: 10) {
+    edges {
+      node {
+        id
+        email
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+overwrite: true
+schema:
+  https://rtkqueryhasuracodegen.hasura.app/v1beta1/relay:
+    headers:
+      'x-hasura-admin-secret': CQ0Fnw0bJs9muIeyASCzocZNEdeqZ8VU9xKGQ8VunFyR8OZr7cZJe6bgt595cacg
+documents: 'src/**/*.graphql'
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+  src:
+    preset: near-operation-file
+    presetConfig:
+      baseTypesPath: 'generated/graphql.ts'
+    plugins:
+      - 'typescript-operations'
+      - 'typescript-rtk-query':
+          importBaseApiFrom: '../../api'
